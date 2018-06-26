@@ -5,7 +5,7 @@
 	<groupId>br.uaijug.neo4j</groupId>
 	<artifactId>gerador</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.1</version>
 	<name>Gerador de Logs</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>

@@ -1,4 +1,4 @@
-package br.uaijug.neo4j;
+package br.uaijug.interpreter;
 
 import com.thedeanda.lorem.Lorem;
 import com.thedeanda.lorem.LoremIpsum;
@@ -32,6 +32,45 @@ public class GeradorAleatorioDeLogs {
 			System.out.println(x);
 		}
 
+	}
+	
+	public static String generateRandomLogWithIpRepetitionAndUsers (Integer lines) {
+		
+		if (lines == null || lines == 0) return "";
+		
+		Integer range = (Integer) lines / 3;
+		
+		String ips [] = new String [range];
+		
+		String users [] = new String [range];
+		
+		for (int i = 0; i < range; i++) {
+			ips[i] = generateRandomIpv4();
+			users[i] = generateRandomId();
+		}
+		
+		
+		
+		String log = "";
+		for (int i = 0 ; i < lines; i ++) {
+			
+			String ipUtilizado = ips[i % range];
+			String userUtilizado = users[i % range];
+			
+			String x = String.format(PADRAO_LOG,
+				generateRandomDateString(06, 2018),
+				generateRandomHoraString(),
+				generateRandomUrl(),
+				ipUtilizado,
+				userUtilizado,
+				generateRandomId(),
+				generateRandomMillis(),
+				generateRandomParameters());
+			
+			log = log + "\n" + x;
+		}
+		
+		return log;
 	}
 	
 	public static String generateRandomLog (Integer lines) {
@@ -106,6 +145,7 @@ public class GeradorAleatorioDeLogs {
 		String parametros = "";
 
 		for (int i = 0 ; i < numPar.intValue(); i++) {
+			if (i > 0 ) parametros = parametros + " , ";
 			parametros = parametros + " \"parm"+i+"\":"+ "\"val-"+i+"\"";
 		}
 
