@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry excluding="main/java/br/uaijug/interpreter/|main/java/br/uaijug/|main/java/br/|main/java/|main/|main/java/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.5.4/jackson-databind-2.5.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.5.0/jackson-annotations-2.5.0.jar"/>
@@ -26,10 +22,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/neo4j/neo4j-lucene-upgrade/3.1.0-M10/neo4j-lucene-upgrade-3.1.0-M10.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-core/5.5.0/lucene-core-5.5.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-backward-codecs/5.5.0/lucene-backward-codecs-5.5.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/com/thedeanda/lorem/2.1/lorem-2.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

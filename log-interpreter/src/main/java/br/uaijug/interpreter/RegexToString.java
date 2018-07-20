@@ -17,10 +17,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-public class Regex {
-	
-	public static final String NEO4J_USER = "neo4j";
-	public static final String NEO4J_PASS = "root";
+public class RegexToString {
 	
 	public static final String QUERY_MERGE_IP = "MERGE (ip:IP {ip:'%s'})";
 
@@ -62,7 +59,7 @@ public class Regex {
 	
 	public static void main(String[] args) {
 	
-		tratarLog(GeradorAleatorioDeLogs.generateRandomLogWithIpRepetitionAndUsers(10000));
+		tratarLog(GeradorAleatorioDeLogs.generateRandomLogWithIpRepetitionAndUsers(10));
 		
 	}
 	
@@ -87,8 +84,6 @@ public class Regex {
 			
 
 			
-			Driver driver = GraphDatabase.driver( "bolt://localhost", AuthTokens.basic( NEO4J_USER, NEO4J_PASS ) );
-			Session session = driver.session();
 			
 			
 			while (matcher.find()) {
@@ -100,17 +95,17 @@ public class Regex {
 			    
 			    if (o.get("url") != null){
 			    
-				    session.run(String.format(QUERY_MERGE_IP , o.get("ip")));
-				    session.run(String.format(QUERY_MERGE_URL, o.get("url")));
+				    System.out.println(String.format(QUERY_MERGE_IP , o.get("ip")));
+				    System.out.println(String.format(QUERY_MERGE_URL, o.get("url")));
 				    
 				    String idUsuario = o.get("idUsuario") == null ? "-1" : o.get("idUsuario").toString();
-				    session.run(String.format(QUERY_MERGE_USUARIO, idUsuario));
+				    System.out.println(String.format(QUERY_MERGE_USUARIO, idUsuario));
 				    
-				    session.run(String.format(QUERY_MERGE_DATA , o.get("data")));
-				    session.run(String.format(QUERY_MERGE_HORA , o.get("hora")));
+				    System.out.println(String.format(QUERY_MERGE_DATA , o.get("data")));
+				    System.out.println(String.format(QUERY_MERGE_HORA , o.get("hora")));
 				    
 				    String idAplicacao = o.get("idAplicacao") == null ? "-1" : o.get("idAplicacao").toString();
-				    session.run(String.format(QUERY_MERGE_APLICACAO , idAplicacao ));
+				    System.out.println(String.format(QUERY_MERGE_APLICACAO , idAplicacao ));
 			    	
 				    HashMap<String,Object> parametros = (HashMap<String, Object>) o.get("parametros");
 				    
@@ -152,8 +147,6 @@ public class Regex {
 			    
 			}
 			
-			session.close();
-			driver.close();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
